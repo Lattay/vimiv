@@ -237,6 +237,7 @@ class SettingStorage(GObject.Object):
             IntSetting("file_check_amount", 30),
             BoolSetting("tilde_in_statusbar", True),
             BoolSetting("antialias", True),
+            BoolSetting("limit_zoom", True),
             BoolSetting("autosave_images", True)]
         self._n = 0
 

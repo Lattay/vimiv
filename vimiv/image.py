@@ -258,8 +258,10 @@ class Image(Gtk.Image):
         max_height = min(self._app["window"].get_size()[1] * 10,
                          self._pixbuf_original.get_height() * 20)
         # Image too small or too large
-        if new_height < min_height or new_width < min_width \
-                or new_height > max_height or new_width > max_width:
+        if settings["limit_zoom"].get_value() and (
+            new_height < min_height or new_width < min_width
+            or new_height > max_height or new_width > max_width
+        ):
             # Warn user if it was his fault
             if self.fit_image == "user":
                 message = "Image cannot be zoomed this far"
@@ -403,3 +405,5 @@ class Image(Gtk.Image):
                     self._play_gif()
                 else:
                     self._pause_gif()
+        elif setting == "antialias":
+            self._update()

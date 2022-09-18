@@ -236,6 +236,7 @@ class SettingStorage(GObject.Object):
             DirectorySetting("desktop_start_dir", os.path.expanduser("~")),
             IntSetting("file_check_amount", 30),
             BoolSetting("tilde_in_statusbar", True),
+            BoolSetting("antialias", True),
             BoolSetting("autosave_images", True)]
         self._n = 0
 

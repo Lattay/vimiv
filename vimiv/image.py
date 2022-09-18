@@ -69,9 +69,15 @@ class Image(Gtk.Image):
             pixbuf_final = GdkPixbuf.Pixbuf.new_from_file_at_scale(
                 self._app.get_path(), -1, pbf_height, True)
         else:
+            if settings["antialias"].get_value():
+                interp_mode = GdkPixbuf.InterpType.BILINEAR
+            else:
+                interp_mode = GdkPixbuf.InterpType.NEAREST
+
             pixbuf_final = self._pixbuf_original.scale_simple(
-                pbf_width, pbf_height, GdkPixbuf.InterpType.BILINEAR)
+                pbf_width, pbf_height, interp_mode)
         self.set_from_pixbuf(pixbuf_final)
+
         # Update the statusbar
         self._app["statusbar"].update_info()
 

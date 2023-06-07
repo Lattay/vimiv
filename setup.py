@@ -15,5 +15,5 @@ setup(
     install_requires=['PyGObject'],
     description="An image viewer with vim-like keybindings",
     license="MIT",
-    url="https://github.com/karlch/vimiv",
+    url="https://github.com/lattay/vimiv",
 )

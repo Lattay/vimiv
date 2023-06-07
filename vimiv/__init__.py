@@ -4,9 +4,10 @@
 import sys
 
 __license__ = "MIT"
-__version__ = "0.9.2.dev0"
-__author__ = __maintainer__ = "Christian Karl"
-__email__ = "karlch@protonmail.com"
+__version__ = "0.9.2.dev1"
+__author__ = "Christian Karl"
+__maintainer__ = "Théo Cavignac"
+__email__ = "theo.cavignac+dev@gmail.com"
 
 try:
     from gi import require_version

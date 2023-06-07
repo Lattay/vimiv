@@ -1,0 +1,29 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=vimiv
+pkgrel=1
+pkgver=0.9.2.dev2
+pkgdesc="An image viewer with vim-like keybindings."
+arch=("any")
+url="https://github.com/Lattay/vimiv"
+license=('MIT')
+depends=("python" "python-gobject")
+makedepends=("python-setuptools")
+provides=("vimiv")
+conflicts=("vimiv")
+source=("https://github.com/Lattay/vimiv/archive/49e0730596cf434ab6715a9004e3b154b8e55ea4.zip")
+sha256sums=('1ea6fcfaa8c56e42273e111b700130d59f15babfdaab85b0921c6d21175ba1e3')
+
+pkgver() {
+    cd "$srcdir/${pkgname}-49e0730596cf434ab6715a9004e3b154b8e55ea4"
+    python -c "import vimiv; print(vimiv.__version__)"
+}
+
+package() {
+    cd "$srcdir/${pkgname}-49e0730596cf434ab6715a9004e3b154b8e55ea4"
+    make DESTDIR="$pkgdir" install
+}
